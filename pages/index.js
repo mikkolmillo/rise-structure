@@ -15,8 +15,15 @@ import {
   TrashIcon,
   UsersIcon,
   XMarkIcon,
+  ArrowPathIcon,
+  CloudArrowUpIcon,
+  CogIcon,
+  LockClosedIcon,
+  ServerIcon,
+  ShieldCheckIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Heading from '../components/ui/Heading'
 
 const solutions = [
   {
@@ -415,21 +422,51 @@ export default function Home() {
         </div>
 
         {/* About */}
-        <div className="bg-white">
-          <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
-            <div className="text-center">
-              <p className="mt-1 text-3xl font-bold tracking-tight text-gray-900 lg:text-4xl uppercase mb-8">
-                Welcome To AADI Construction
-              </p>
-              <div className="max-w-xl mx-auto border-t border-red-500" />
-              <p className="mx-auto mt-5 max-w-6xl text-xl text-gray-500">
-                We at AADI construction deliver projects that sets benchmark across multidisciplinary segments. We span across 4 continent and have a base of 34343 satisfied customers since 1996. From construction to architecture, we understand the art and science behind the building. At AADI construction we deliver efficient green housing and electrical fitting using cutting edge methods to precision.We have a team of dedicated professional that provide integrated solution to ensure safety and on time completion of projects. We are expanding our presence by providing world class infrastructure.
-              </p>
+        <section>
+          <div className="bg-white">
+            <Heading
+              title={'Welcome To AADI Construction'}
+              subtext={'We at AADI construction deliver projects that sets benchmark across multidisciplinary segments. We span across 4 continent and have a base of 34343 satisfied customers since 1996. From construction to architecture, we understand the art and science behind the building. At AADI construction we deliver efficient green housing and electrical fitting using cutting edge methods to precision.We have a team of dedicated professional that provide integrated solution to ensure safety and on time completion of projects. We are expanding our presence by providing world class infrastructure.'}
+            />
+
+            <img src="/img/about-us-img.png" alt="About Us" className='mx-auto' />
+          </div>
+        </section>
+
+        {/* Services */}
+        <section>
+          <div className="bg-white">
+
+          </div>
+          <div className="relative bg-white py-24">
+            <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
+              <Heading
+                title={'Our Services'}
+              />
+              <div className="mt-20">
+                <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+                  {features.map((feature) => (
+                    <div key={feature.name} className="pt-6">
+                      <div className="flow-root rounded-lg bg-gray-50 px-6 pb-8">
+                        <div className="-mt-6">
+                          <div>
+                            <span className="inline-flex items-center justify-center rounded-xl bg-indigo-500 p-3 shadow-lg">
+                              <feature.icon className="h-8 w-8 text-white" aria-hidden="true" />
+                            </span>
+                          </div>
+                          <h3 className="mt-8 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                            {feature.name}
+                          </h3>
+                          <p className="mt-5 text-base leading-7 text-gray-600">{feature.description}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-
-          <img src="/img/about-us-img.png" alt="About Us" className='mx-auto' />
-        </div>
+        </section>
         {/* Logo Cloud */}
         {/* <div className="bg-gray-100">
           <div className="mx-auto max-w-7xl py-16 px-6 lg:px-8">
