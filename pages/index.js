@@ -188,6 +188,72 @@ const footerNavigation = {
     },
   ],
 }
+const files = [
+  {
+    title: 'IMG_4985.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  {
+    title: 'IMG_4986.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  {
+    title: 'IMG_4987.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  {
+    title: 'IMG_4988.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  {
+    title: 'IMG_4989.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  {
+    title: 'IMG_49810.HEIC',
+    size: '3.9 MB',
+    source:
+      'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
+  },
+  // More files...
+]
+const people = [
+  {
+    name: 'Lindsay Walton',
+    role: 'Front-end Developer',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+  {
+    name: 'Lindsay Walton1',
+    role: 'Front-end Developer',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+  {
+    name: 'Lindsay Walton2',
+    role: 'Front-end Developer',
+    imageUrl:
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+    twitterUrl: '#',
+    linkedinUrl: '#',
+  },
+  // More people...
+]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -467,6 +533,85 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Works */}
+        <section>
+          <div className="">
+            <Heading
+              title={'Recent Works'}
+            />
+            <div className="pb-32">
+              <ul role="list" className="max-w-7xl mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+                {files.map((file) => (
+                  <li key={file.source} className="relative">
+                    <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
+                      <img src={file.source} alt="" className="pointer-events-none object-cover group-hover:opacity-75" />
+                      <button type="button" className="absolute inset-0 focus:outline-none">
+                        <span className="sr-only">View details for {file.title}</span>
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Teams */}
+        <section>
+          <div className="bg-white">
+            <div className="mx-auto max-w-7xl py-12 px-6 lg:px-8 lg:py-24">
+              <div className="space-y-12">
+                <Heading
+                  title={'Team AADI'}
+                />
+                <ul
+                  role="list"
+                  className="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8"
+                >
+                  {people.map((person) => (
+                    <li key={person.name}>
+                      <div className="space-y-4">
+                        <div className="aspect-w-3 aspect-h-2">
+                          <img className="rounded-lg object-cover shadow-lg" src={person.imageUrl} alt="" />
+                        </div>
+
+                        <div className="space-y-2">
+                          <div className="space-y-1 text-lg font-medium leading-6">
+                            <h3>{person.name}</h3>
+                            <p className="text-indigo-600">{person.role}</p>
+                          </div>
+                          <ul role="list" className="flex space-x-5">
+                            <li>
+                              <a href={person.twitterUrl} className="text-gray-400 hover:text-gray-500">
+                                <span className="sr-only">Twitter</span>
+                                <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                                </svg>
+                              </a>
+                            </li>
+                            <li>
+                              <a href={person.linkedinUrl} className="text-gray-400 hover:text-gray-500">
+                                <span className="sr-only">LinkedIn</span>
+                                <svg className="h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+                                  <path
+                                    fillRule="evenodd"
+                                    d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                                    clipRule="evenodd"
+                                  />
+                                </svg>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Logo Cloud */}
         {/* <div className="bg-gray-100">
           <div className="mx-auto max-w-7xl py-16 px-6 lg:px-8">
@@ -508,14 +653,6 @@ export default function Home() {
         {/* Stats section */}
         <div className="bg-indigo-800">
           <div className="mx-auto max-w-7xl py-12 px-6 sm:py-16 lg:px-8 lg:py-20">
-            <div className="mx-auto max-w-4xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Trusted by developers from over 80 planets
-              </h2>
-              <p className="mt-3 text-xl text-indigo-200 sm:mt-4">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus repellat laudantium.
-              </p>
-            </div>
             <dl className="mt-10 text-center sm:mx-auto sm:grid sm:max-w-3xl sm:grid-cols-3 sm:gap-8">
               <div className="flex flex-col">
                 <dt className="order-2 mt-2 text-lg font-medium leading-6 text-indigo-200">Pepperoni</dt>
