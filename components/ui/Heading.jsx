@@ -2,7 +2,7 @@ import React from 'react'
 
 const Heading = ({ title, subtext }) => {
   return (
-    <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:px-8">
+    <div className="mx-auto max-w-7xl py-16 px-6 sm:py-24 lg:py-10 lg:px-8">
       <div className="text-center">
         <p className="mt-1 text-3xl font-bold tracking-tight text-gray-900 lg:text-4xl uppercase mb-8">
           {title}
