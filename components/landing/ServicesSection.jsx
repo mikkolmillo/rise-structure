@@ -59,11 +59,7 @@ const services = [
 ]
 
 const ServicesSection = () => {
-  const [content, setContent] = useState({
-    img: 'https://aadi.theironnetwork.org/wp-content/uploads/2016/06/44639686_xxl-1-940x600.jpg',
-    title: 'Construction',
-    text: ''
-  })
+  const [content, setContent] = useState(services[0])
 
   const selectHandler = (selectItem) => {
     const selectedContent = services.filter(item => item.title === selectItem)

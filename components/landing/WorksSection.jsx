@@ -42,7 +42,7 @@ const files = [
 
 const WorksSection = () => {
   return (
-    <div>
+    <div className='relative'>
       <Heading
         title={'Recent Works'}
       />
