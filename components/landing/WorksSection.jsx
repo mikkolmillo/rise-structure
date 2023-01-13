@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Heading from '../ui/Heading'
 
 const tabs = [
@@ -12,48 +13,56 @@ const tabs = [
 const files = [
   {
     title: 'IMG_4985.HEIC',
-    size: '3.9 MB',
+    category: 'Architecture',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   {
     title: 'IMG_4986.HEIC',
-    size: '3.9 MB',
+    category: 'Construction',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   {
     title: 'IMG_4987.HEIC',
-    size: '3.9 MB',
+    category: 'Consulting',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   {
     title: 'IMG_4988.HEIC',
-    size: '3.9 MB',
+    category: 'Electrical',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   {
     title: 'IMG_4989.HEIC',
-    size: '3.9 MB',
+    category: 'Metal Roofing',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   {
     title: 'IMG_49810.HEIC',
-    size: '3.9 MB',
+    category: 'Painting',
     source:
       'https://images.unsplash.com/photo-1582053433976-25c00369fc93?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=512&q=80',
   },
   // More files...
 ]
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 const WorksSection = () => {
+  const [works, setWorks] = useState(files)
+
+  const selectHandler = selectedItem => {
+    if (selectedItem === 'Show All') {
+      setWorks(files)
+    } else {
+      const newList = files.filter(item => item.category == selectedItem)
+
+      setWorks(newList)
+    }
+  }
+
   return (
     <div className='relative'>
       <Heading
@@ -69,6 +78,7 @@ const WorksSection = () => {
           name="tabs"
           className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
           defaultValue={tabs.find((tab) => tab.current).name}
+          onChange={(e) => selectHandler(e.target.value)}
         >
           {tabs.map((tab) => (
             <option key={tab.name}>{tab.name}</option>
@@ -82,6 +92,7 @@ const WorksSection = () => {
               key={tab.name}
               className='border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm'
               aria-current={tab.current ? 'page' : undefined}
+              onClick={() => selectHandler(tab.name)}
             >
               {tab.name}
             </button>
@@ -90,8 +101,8 @@ const WorksSection = () => {
       </div>
       <div>
         <ul role="list" className="max-w-7xl mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-          {files.map((file) => (
-            <li key={file.source} className="relative">
+          {works.map((file) => (
+            <li key={file.title} className="relative">
               <div className="group aspect-w-10 aspect-h-7 block w-full overflow-hidden rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 focus-within:ring-offset-gray-100">
                 <img src={file.source} alt="" className="pointer-events-none object-cover group-hover:opacity-75" />
                 <button type="button" className="absolute inset-0 focus:outline-none">
