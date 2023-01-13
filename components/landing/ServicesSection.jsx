@@ -74,49 +74,47 @@ const ServicesSection = () => {
   }
 
   return (
-    <div className="relative bg-white py-24">
-      <div className="mx-auto max-w-md px-6 text-center sm:max-w-3xl lg:max-w-7xl lg:px-8">
+    <div className="relative bg-white py-16">
+      <div className="mx-auto max-w-3xl px-6 text-center lg:max-w-7xl lg:px-8">
         <Heading
           title={'Our Services'}
           subtext={'Our strength lies in our ability to design innovative architecture and restructuring conventional designs to accommodate to the needs of modern times.'}
         />
-        <div className="mt-20">
-          <div className="lg:grid lg:gap-12 lg:grid-cols-3">
-            <div className="hidden lg:block grid-cols-1">
-              {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  className='border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-7 text-sm font-medium border-l-4 w-full'
-                  onClick={() => selectHandler(item.name)}
-                >
-                  <item.icon
-                    className='text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6'
-                    aria-hidden="true"
-                  />
-                  {item.name}
-                </button>
-              ))}
-            </div>
-            {/* <div className="flex items-center justify-between lg:hidden">
-                    {navigation.map(item => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className='text-lg uppercase text-indigo-600'
-                      >
-                        {item.name}
-                      </a>
-                    ))}
-                  </div> */}
-            <div className="h-32 lg:h-full lg:grid-cols-2 lg:col-span-2">
-              {content && (
-                <div className='flex flex-col items-start'>
-                  <img src={content.img} alt={content.title} className='object-cover aspect-2' />
-                  <h3 className='py-3 text-lg'>{content.title}</h3>
-                  <p className='text-left'>{content.content}</p>
-                </div>
-              )}
-            </div>
+        <div className="lg:grid lg:gap-12 lg:grid-cols-3 pb-60 lg:pb-0">
+          <div className="hidden lg:block grid-cols-1">
+            {navigation.map((item) => (
+              <button
+                key={item.name}
+                className='border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-3 py-7 text-sm font-medium border-l-4 w-full'
+                onClick={() => selectHandler(item.name)}
+              >
+                <item.icon
+                  className='text-gray-400 group-hover:text-gray-500 mr-3 flex-shrink-0 h-6 w-6'
+                  aria-hidden="true"
+                />
+                {item.name}
+              </button>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center justify-center lg:hidden">
+            {navigation.map(item => (
+              <button
+                key={item.name}
+                className='text-lg uppercase text-indigo-600 p-4'
+                onClick={() => selectHandler(item.name)}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+          <div className="h-32 lg:h-full lg:grid-cols-2 lg:col-span-2">
+            {content && (
+              <div className='flex flex-col items-center lg:items-start'>
+                <img src={content.img} alt={content.title} className='object-cover aspect-2' />
+                <h3 className='text-center py-3 text-lg'>{content.title}</h3>
+                <p className='text-center lg:text-left'>{content.content}</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
