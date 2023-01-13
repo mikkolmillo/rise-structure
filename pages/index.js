@@ -456,8 +456,8 @@ export default function Home() {
       <main>
         {/* Hero section */}
         <div className="relative">
-          <div className="mx-auto max-w-full sm:px-6 lg:px-8">
-            <div className="relative shadow-xl sm:overflow-hidden sm:rounded-2xl">
+          <div className="mx-auto max-w-full">
+            <div className="relative sm:overflow-hidden">
               <div className="absolute inset-0">
                 <img
                   className="h-full w-full object-cover"
@@ -476,7 +476,7 @@ export default function Home() {
 
         {/* About */}
         <section>
-          <div className="bg-white">
+          <div className="bg-white pt-24">
             <Heading
               title={'Welcome To AADI Construction'}
               subtext={'We at AADI construction deliver projects that sets benchmark across multidisciplinary segments. We span across 4 continent and have a base of 34343 satisfied customers since 1996. From construction to architecture, we understand the art and science behind the building. At AADI construction we deliver efficient green housing and electrical fitting using cutting edge methods to precision.We have a team of dedicated professional that provide integrated solution to ensure safety and on time completion of projects. We are expanding our presence by providing world class infrastructure.'}
@@ -519,7 +519,7 @@ export default function Home() {
                       </a>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between lg:hidden">
+                  {/* <div className="flex items-center justify-between lg:hidden">
                     {navigation.map(item => (
                       <a
                         key={item.name}
@@ -529,7 +529,7 @@ export default function Home() {
                         {item.name}
                       </a>
                     ))}
-                  </div>
+                  </div> */}
                   <div className="h-32 lg:h-full lg:grid-cols-2 lg:col-span-2 bg-black">
                     hello
                   </div>
@@ -545,7 +545,7 @@ export default function Home() {
             <Heading
               title={'Recent Works'}
             />
-            <div className="pb-32">
+            <div>
               <ul role="list" className="max-w-7xl mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
                 {files.map((file) => (
                   <li key={file.source} className="relative">
